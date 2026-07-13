@@ -1,0 +1,46 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Local environment and sensitive files
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Raw evidence stays local until reviewed and sanitized.
+# Only sanitized material goes into investigations/*/evidence/.
+evidence/raw/
+*.pcap
+*.pcapng
+
+# Virtual machine and installation artifacts
+*.iso
+*.ova
+*.ovf
+*.vmdk
+*.vmem
+*.nvram
+*.vmss
+*.vmsn
+*.vswp
