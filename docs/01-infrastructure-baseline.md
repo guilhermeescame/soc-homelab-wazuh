@@ -84,7 +84,7 @@ The allocation totals 25 vCPU and 42 GB of RAM against 14 physical cores and 64 
 
 | Network | Subnet | Gateway (FortiGate) | Notes |
 |---|---|---|---|
-| WAN / physical | 192.168.16.0/24 | 192.168.16.1 (physical router) | FortiGate port1 addressed by DHCP |
+| WAN / physical | 192.168.16.0/24 | 192.168.16.1 (physical router) | |
 | SOC Network | 10.10.10.0/24 | 10.10.10.1 (port2) | |
 | Attack Network | 10.10.20.0/24 | 10.10.20.1 (port3) | |
 
@@ -103,7 +103,7 @@ The allocation totals 25 vCPU and 42 GB of RAM against 14 physical cores and 64 
 ## Traffic paths
 
 1. **Attack → SOC:** Kali (vSwitch-Attack) → FortiGate port3 → firewall policy evaluation → FortiGate port2 → SOC Network. Every validation scenario exercises this path.
-2. **SOC → external:** SOC hosts reach the internet through port2 → port1 under the `SOC-to-Internet` policy, an egress-only rule. There is no inbound path from the WAN to the SOC Network.
+2. **SOC → external:** SOC hosts reach the internet through port2 → port1 under the `SOC-to-Internet` policy. Inbound access from the WAN side is limited to the management workstation, which reaches the SOC Network through the `MGMT-to-SOC` policy and a static route configured on the workstation itself (10.10.10.0/24 via the FortiGate WAN address).
 3. **Management:** the ESXi Host Client (192.168.16.227) and the FortiGate web interface (192.168.16.244) are reached from the physical network only.
 
 Traffic the FortiGate denies never reaches the SOC Network, so it appears only in FortiGate logs — Suricata sees the monitored segment, not the firewall's ingress.
@@ -120,8 +120,4 @@ Traffic the FortiGate denies never reaches the SOC Network, so it appears only i
 
 The host also runs a few personal VMs unrelated to the lab; they appear blurred in the screenshots below and stay out of scope for the project.
 
-Screenshots supporting this baseline, sanitized before publication:
-
-| File | What it shows |
-|---|---|
-| `img/01-baseline/esxi-network-topology.png` | vSwitches, port groups, 
+Screenshots supporting this baseline, sanitized 
