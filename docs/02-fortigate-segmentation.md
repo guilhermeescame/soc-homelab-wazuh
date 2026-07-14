@@ -53,7 +53,7 @@ What each path should do under the configuration above. This matrix is the test 
 
 ## Validation tests
 
-All five tests were executed on 2026-07-14 and behaved as the matrix predicts. Each log excerpt below was captured from Log & Report > Forward Traffic, filtered to the traffic of the test.
+All five tests behaved as the matrix predicts. Each log excerpt below was captured from Log & Report > Forward Traffic, filtered to the traffic of the test.
 
 | Test | From | Action | Expected | Observed | Evidence |
 |---|---|---|---|---|---|
@@ -68,4 +68,5 @@ Matrix row 6 is not tested separately: no other WAN host is under the lab's cont
 ## Known limitations
 
 - FortiGate administrative access (PING, HTTPS, SSH) is reachable from all three networks, including the Attack Network.
-- The three-policy budget is fully spent. Any future segmentation need — for example, splitting SOC traffic by service — requires removing o
+- The three-policy budget is fully spent. Any future segmentation need — for example, splitting SOC traffic by service — requires removing or widening an existing policy.
+-
