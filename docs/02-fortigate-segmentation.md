@@ -33,6 +33,9 @@ The Evaluation license allows exactly three policies, and all three slots are in
 
 Everything not matched above hits the implicit deny, which logs violation traffic so that denied paths leave evidence.
 
+![FortiGate firewall policy table](./img/02-fortigate/policy-table.png)
+*The three policies and the implicit deny as configured, with NAT and logging state per policy.*
+
 Two of these policies deserve a word on intent:
 
 - `Attack-to-SOC` allows ALL services on purpose. This is a detection lab: the goal is for attack traffic to cross the boundary, get logged by the FortiGate, and be seen by Suricata and Wazuh — not to be stopped at the edge. NAT is disabled so the telemetry records the real source address (10.10.20.10), which every UC-01 investigation will depend on.
@@ -68,5 +71,4 @@ Matrix row 6 is not tested separately: no other WAN host is under the lab's cont
 ## Known limitations
 
 - FortiGate administrative access (PING, HTTPS, SSH) is reachable from all three networks, including the Attack Network.
-- The three-policy budget is fully spent. Any future segmentation need — for example, splitting SOC traffic by service — requires removing or widening an existing policy.
--
+- The 

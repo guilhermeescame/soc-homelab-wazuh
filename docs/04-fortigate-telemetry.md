@@ -46,6 +46,9 @@ The integration counts as validated when a known, controlled event — not backg
 
 The controlled event was a repeated `ping 8.8.8.8` from Kali — traffic the implicit deny drops and logs, as established in the segmentation baseline.
 
+![Decoded FortiGate event in Wazuh](./img/04-syslog/wazuh-fortigate-event-detail.png)
+*The expanded event in Wazuh: the `fortigate-firewall-v5` decoder applied, with the denied ping's source, destination, action, and policy parsed out of the raw log.*
+
 | Check | Expected | Observed | Evidence |
 |---|---|---|---|
 | Syslog reception | Manager receives messages from 10.10.10.1 | Events arriving with `location: 10.10.10.1` | [wazuh-fortigate-event-detail.png](./img/04-syslog/wazuh-fortigate-event-detail.png) |
@@ -66,5 +69,4 @@ Screenshots supporting this document, sanitized before publication:
 | File | What it shows |
 |---|---|
 | `img/04-syslog/fortigate-syslog-config.png` | Syslog destination on the FortiGate. The `show` output omits values left at default — `mode udp` and `port 514` are defaults, not missing settings. |
-| `img/04-syslog/wazuh-fortigate-events.png` | FortiGate events in Threat Hunting, filtered by `rule.groups: fortigate` |
-| `img/04-syslog/wazuh-fortigate-event-detail.png` | The expanded event: FortiGate decoder applied and the denied ping's fields (source, destination, action, policy) |
+| `img/04-syslog/wazuh-fortigate-even
