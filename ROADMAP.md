@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 1 – Core SOC Visibility** · active milestone: **C1-02 – Infrastructure baseline**
+**Chapter 1 – Core SOC Visibility** · active milestone: **C1-03 – FortiGate segmentation baseline**
 
 ## How status is tracked
 
@@ -26,7 +26,7 @@ Goal: reliable telemetry from firewall, network, identity, and endpoints, centra
 | ID | Milestone | Done when | Status |
 |---|---|---|---|
 | C1-01 | Project foundation and scope | Scope, boundaries, success criteria, and documentation approach are reviewed and stored in the repository. | Validated |
-| C1-02 | Infrastructure baseline | ESXi resources, virtual networking, VM inventory, IP plan, traffic paths, and known limitations are documented and reviewed. | In Progress |
+| C1-02 | Infrastructure baseline | ESXi resources, virtual networking, VM inventory, IP plan, traffic paths, and known limitations are documented and reviewed. | Validated |
 | C1-03 | FortiGate segmentation baseline | Interfaces and firewall policies are documented; allowed and denied traffic paths are tested, logged, and supported by reviewed evidence. | Implemented |
 | C1-04 | Wazuh Agent onboarding | Active Directory, Windows 10, Debian, and Suricata report as active agents, each correctly identified in Wazuh. | Planned |
 | C1-05 | FortiGate telemetry integration | FortiGate syslog is received, identified, and available for investigation in Wazuh. | Planned |
@@ -54,4 +54,4 @@ Starts only after the Chapter 2 detection workflow is stable. All milestones are
 - add basic alert enrichment;
 - evaluate controlled notifications;
 - implement a small, reversible automation workflow;
-- document response safeguards and operational risks.
+- document response safeguards and operational r
