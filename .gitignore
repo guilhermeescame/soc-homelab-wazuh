@@ -28,19 +28,14 @@ credentials/
 *.pfx
 *.p12
 
+# Local working files (not project content)
+TODO.local.md
+baseline-dados*.xlsx
+
 # Raw evidence stays local until reviewed and sanitized.
 # Only sanitized material goes into investigations/*/evidence/.
 evidence/raw/
 *.pcap
 *.pcapng
 
-# Virtual machine and installation artifacts
-*.iso
-*.ova
-*.ovf
-*.vmdk
-*.vmem
-*.nvram
-*.vmss
-*.vmsn
-*.vswp
+# Virtual machine and inst
