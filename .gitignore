@@ -30,7 +30,7 @@ credentials/
 
 # Local working files (not project content)
 TODO.local.md
-baseline-dados*.xlsx
+*-dados*.xlsx
 
 # Raw evidence stays local until reviewed and sanitized.
 # Only sanitized material goes into investigations/*/evidence/.
