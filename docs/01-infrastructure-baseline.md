@@ -22,7 +22,7 @@ Only `vSwitch0` has a physical uplink. The SOC and Attack networks exist only in
 
 | vSwitch | Physical uplink | Port group(s) | Promiscuous mode | Forged transmits | Purpose |
 |---|---|---|---|---|---|
-| vSwitch0 | Yes (`vmnic0`) | WAN Soc, VM Network, Management Network | Reject (default) | Reject (default) | External connectivity for the FortiGate WAN and ESXi management |
+| vSwitch0 | Yes (`vmnic0`) | WAN Soc, Management Network | Reject (default) | Reject (default) | External connectivity for the FortiGate WAN and ESXi management |
 | vSwitch-Lab | No | LAN Soc | **Accept** | Reject (default) | SOC Network |
 | vSwitch-Attack | No | Attack-Network | Reject (default) | Reject (default) | Attack Network |
 
@@ -37,7 +37,6 @@ flowchart LR
     subgraph ESXI["ESXi 6.7 host"]
         subgraph SW0["vSwitch0 — physical uplink"]
             WANSOC["WAN Soc"]
-            VMNET["VM Network"]
             MGMT["Management Network"]
         end
 
@@ -119,9 +118,10 @@ Traffic the FortiGate denies never reaches the SOC Network, so it appears only i
 
 ## Evidence
 
+The host also runs a few personal VMs unrelated to the lab; they appear blurred in the screenshots below and stay out of scope for the project.
+
 Screenshots supporting this baseline, sanitized before publication:
 
 | File | What it shows |
 |---|---|
-| `img/01-baseline/esxi-network-topology.png` | vSwitches, port groups, and physical uplink |
-| `img/01-baseline/esxi-vm-inventory.png` | VM list with resource allocation |
+| `img/01-baseline/esxi-network-topology.png` | vSwitches, port groups, 
