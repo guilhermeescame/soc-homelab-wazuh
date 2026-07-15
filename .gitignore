@@ -38,4 +38,13 @@ evidence/raw/
 *.pcap
 *.pcapng
 
-# Virtual machine and inst
+# Virtual machine and installation artifacts
+*.iso
+*.ova
+*.ovf
+*.vmdk
+*.vmem
+*.nvram
+*.vmss
+*.vmsn
+*.vswp
