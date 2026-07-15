@@ -46,7 +46,7 @@ Chapter 1 closes when every item below holds:
 - [x] Kali reaches SOC Network systems only through an authorized firewall policy.
 - [x] Wazuh receives and correctly identifies telemetry from Active Directory, Windows 10, Debian, Suricata, and FortiGate.
 - [x] Suricata captures and records test traffic reaching the monitored network.
-- [ ] UC-01 produces the expected FortiGate, Suricata, and Wazuh records.
+- [x] UC-01 produces the expected FortiGate, Suricata, and Wazuh records.
 - [ ] UC-02 produces the expected Windows Security Events and Wazuh records.
 - [ ] Each scenario has reviewed evidence and a written investigation report.
 - [ ] Software versions and relevant configuration dependencies are documented.
