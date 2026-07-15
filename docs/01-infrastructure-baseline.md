@@ -120,4 +120,9 @@ Traffic the FortiGate denies never reaches the SOC Network, so it appears only i
 
 The host also runs a few personal VMs unrelated to the lab; they appear blurred in the screenshots below and stay out of scope for the project.
 
-Screenshots supporting this baseline, sanitized 
+Screenshots supporting this baseline, sanitized before publication:
+
+| File | What it shows |
+|---|---|
+| `img/01-baseline/esxi-network-topology.png` | vSwitches, port groups, and physical uplink |
+| `img/01-baseline/esxi-vm-inventory.png` | VM list with resource allocation |

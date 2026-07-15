@@ -71,4 +71,18 @@ Matrix row 6 is not tested separately: no other WAN host is under the lab's cont
 ## Known limitations
 
 - FortiGate administrative access (PING, HTTPS, SSH) is reachable from all three networks, including the Attack Network.
-- The 
+- The three-policy budget is fully spent. Any future segmentation need — for example, splitting SOC traffic by service — requires removing or widening an existing policy.
+- `Attack-to-SOC` trades boundary enforcement for visibility by design; the SOC Network is deliberately exposed to the Attack Network.
+
+## Evidence
+
+Screenshots supporting this document, sanitized before publication:
+
+| File | What it shows |
+|---|---|
+| `img/02-fortigate/policy-table.png` | The three policies and the implicit deny as configured, including NAT and logging state |
+| `img/02-fortigate/t1-kali-para-soc.png` | PING and SSH from Kali accepted by Attack-to-SOC |
+| `img/02-fortigate/t2-kali-internet.png` | Kali blocked from the internet by the implicit deny |
+| `img/02-fortigate/t3-soc-internet.png` | Windows 10 browsing through SOC-to-Internet |
+| `img/02-fortigate/t4-soc-para-attack.png` | Windows 10 blocked from the Attack Network by the implicit deny |
+| `img/02-fortigate/t5-mgmt-rdp.png` | RDP from the management workstation accepted by MGMT-to-SOC |

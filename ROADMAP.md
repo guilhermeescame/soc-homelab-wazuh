@@ -54,4 +54,4 @@ Starts only after the Chapter 2 detection workflow is stable. All milestones are
 - add basic alert enrichment;
 - evaluate controlled notifications;
 - implement a small, reversible automation workflow;
-- document response safeguards and operation
+- document response safeguards and operational risks.
