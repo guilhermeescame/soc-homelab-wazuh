@@ -109,6 +109,8 @@ Each milestone produces one document, written as the work happens:
 | [Wazuh Agent Onboarding](./docs/03-wazuh-agent-onboarding.md) | Manager deployment, agent naming convention, enrollment, and verification | C1-04 |
 | [FortiGate Telemetry Integration](./docs/04-fortigate-telemetry.md) | The syslog pipeline and the controlled event that validates decoding end to end | C1-05 |
 | [Suricata Sensor Validation](./docs/05-suricata-sensor.md) | Capture design, sensor configuration, and the passive capture proof | C1-06 |
+| [Suricata and Wazuh Integration](./docs/06-suricata-wazuh-integration.md) | Collecting `eve.json` through the host agent and the controlled alert that validates it | C1-07 |
+| [UC-01: Network Discovery](./investigations/UC-01/report.md) | Investigation report — a controlled scan from Kali traced across FortiGate, Suricata, and Wazuh | C1-08 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -117,19 +119,24 @@ Each milestone produces one document, written as the work happens:
 .
 ├── README.md            ← you are here
 ├── ROADMAP.md           ← milestone status
-└── docs/
-    ├── 00-project-scope.md
-    ├── 01-infrastructure-baseline.md
-    ├── 02-fortigate-segmentation.md
-    ├── 03-wazuh-agent-onboarding.md
-    ├── 04-fortigate-telemetry.md
-    ├── 05-suricata-sensor.md
-    └── img/             ← sanitized evidence, one folder per document
+├── docs/
+│   ├── 00-project-scope.md
+│   ├── 01-infrastructure-baseline.md
+│   ├── 02-fortigate-segmentation.md
+│   ├── 03-wazuh-agent-onboarding.md
+│   ├── 04-fortigate-telemetry.md
+│   ├── 05-suricata-sensor.md
+│   ├── 06-suricata-wazuh-integration.md
+│   └── img/             ← sanitized evidence, one folder per document
+└── investigations/     ← STAR investigation reports, one folder per scenario
+    └── UC-01/
+        ├── report.md
+        └── evidence/
 ```
 
 ## Where the project is now
 
-The infrastructure, segmentation, and telemetry pipeline are built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata records the monitored segment in `eve.json`. What remains in Chapter 1 is connecting Suricata's output to Wazuh and running the two investigation scenarios.
+The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. The first investigation scenario is done — a controlled network scan from Kali, traced across all three sources in [UC-01](./investigations/UC-01/report.md). What remains in Chapter 1 is the second scenario and the chapter closure.
 
 Deployed is not the same as validated — each milestone only closes after documented testing and evidence review. Current focus and status live in the [Roadmap](./ROADMAP.md).
 
