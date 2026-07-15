@@ -15,7 +15,7 @@ A few constraints shape what this chapter can promise:
 - Suricata is a passive sensor, so its visibility depends on the capture interface and virtual switch configuration — traffic denied before reaching the monitored path may appear only in FortiGate logs;
 - the lab validates monitoring behavior at small scale, not enterprise traffic volume.
 
-The complete infrastructure reference — ESXi resources, virtual networking, VM inventory, IP plan, and traffic paths — is the deliverable of milestone C1-02 and will be documented separately.
+The complete infrastructure reference — ESXi resources, virtual networking, VM inventory, IP plan, and traffic paths — is documented in the [Infrastructure Baseline](./01-infrastructure-baseline.md).
 
 ## Telemetry sources
 
@@ -42,10 +42,10 @@ Firewall allow and deny tests support the infrastructure baseline but do not cou
 
 Chapter 1 closes when every item below holds:
 
-- [ ] The FortiGate isolates the SOC Network from the Attack Network.
-- [ ] Kali reaches SOC Network systems only through an authorized firewall policy.
+- [x] The FortiGate isolates the SOC Network from the Attack Network.
+- [x] Kali reaches SOC Network systems only through an authorized firewall policy.
 - [ ] Wazuh receives and correctly identifies telemetry from Active Directory, Windows 10, Debian, Suricata, and FortiGate.
-- [ ] Suricata captures and records test traffic reaching the monitored network.
+- [x] Suricata captures and records test traffic reaching the monitored network.
 - [ ] UC-01 produces the expected FortiGate, Suricata, and Wazuh records.
 - [ ] UC-02 produces the expected Windows Security Events and Wazuh records.
 - [ ] Each scenario has reviewed evidence and a written investigation report.
@@ -86,4 +86,4 @@ Excluded from Chapter 1:
 ## Related documentation
 
 - [README](../README.md) — project introduction, architecture, and technology choices.
-- [Project Roadmap](../ROADMAP.md) — milestones, current focus, and status.
+- [Project Roadmap](../ROADMAP.md) — milestones, current focus, and 
