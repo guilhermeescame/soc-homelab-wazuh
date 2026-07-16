@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 1 – Core SOC Visibility** · complete. Next: **Chapter 2 – Endpoint and Detection Engineering**
+**Chapter 2 – Endpoint and Detection Engineering** · in progress. Current milestone: **C2-01 – Chapter scope and acceptance criteria**
 
 ## How status is tracked
 
@@ -38,13 +38,18 @@ Goal: reliable telemetry from firewall, network, identity, and endpoints, centra
 
 ## Chapter 2 – Endpoint and Detection Engineering
 
-Starts only after Chapter 1 is validated. All milestones are deferred until then:
+Goal: turn visibility into detection — Sysmon telemetry on the Windows endpoint, a custom rule validated against a controlled scenario, tuned against false positives, and mapped to MITRE ATT&CK.
 
-- deploy and tune Sysmon on Windows 10;
-- execute a controlled suspicious PowerShell scenario;
-- create and validate at least one custom Wazuh rule;
-- review false positives and tune the detection;
-- map validated detections to MITRE ATT&CK.
+| ID | Milestone | Done when | Status |
+|---|---|---|---|
+| C2-01 | Chapter scope and acceptance criteria | Scope, boundaries, success criteria, and the detection workflow are reviewed and stored in the repository. | In Progress |
+| C2-02 | Sysmon deployment on Windows 10 | Sysmon runs with a documented configuration, and Wazuh receives and correctly identifies its events. | Planned |
+| C2-03 | Sysmon telemetry validation | A controlled test event is traced end to end, and the endpoint's normal baseline behavior is documented. | Planned |
+| C2-04 | UC-03: Suspicious PowerShell execution | The controlled scenario produces the expected Sysmon telemetry in Wazuh. Evidence and a STAR-based investigation report are reviewed. | Planned |
+| C2-05 | Custom Wazuh detection rule | At least one custom rule alerts on the UC-03 activity; the rule is committed with the reasoning behind its conditions. | Planned |
+| C2-06 | False-positive review and tuning | The rule has run against normal endpoint activity, with false positives documented and the tuning re-tested. | Planned |
+| C2-07 | MITRE ATT&CK mapping | Each validated detection is mapped to the technique it covers — and to what it misses. | Planned |
+| C2-08 | Chapter 2 review and closure | Evidence is sanitized, limitations and lessons learned are recorded, and the chapter success criteria are reviewed. | Planned |
 
 ## Chapter 3 – Response and Automation
 
