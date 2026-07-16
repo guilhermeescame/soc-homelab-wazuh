@@ -49,9 +49,9 @@ Chapter 1 closes when every item below holds:
 - [x] UC-01 produces the expected FortiGate, Suricata, and Wazuh records.
 - [x] UC-02 produces the expected Windows Security Events and Wazuh records.
 - [x] Each scenario has reviewed evidence and a written investigation report.
-- [ ] Software versions and relevant configuration dependencies are documented.
-- [ ] Known visibility gaps and technical limitations are documented.
-- [ ] Published evidence contains no credentials, tokens, personal data, or unnecessary infrastructure details.
+- [x] Software versions and relevant configuration dependencies are documented.
+- [x] Known visibility gaps and technical limitations are documented.
+- [x] Published evidence contains no credentials, tokens, personal data, or unnecessary infrastructure details.
 
 ## Evidence requirements
 

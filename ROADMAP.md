@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 1 – Core SOC Visibility** · active milestone: **C1-10 – Chapter 1 review and closure**
+**Chapter 1 – Core SOC Visibility** · complete. Next: **Chapter 2 – Endpoint and Detection Engineering**
 
 ## How status is tracked
 
@@ -34,7 +34,7 @@ Goal: reliable telemetry from firewall, network, identity, and endpoints, centra
 | C1-07 | Suricata and Wazuh integration | Wazuh ingests `eve.json` through the host agent and identifies the expected Suricata events. | Validated |
 | C1-08 | UC-01: Network discovery | A controlled discovery test from Kali produces the expected Suricata and FortiGate telemetry. Evidence and a STAR-based investigation report are reviewed. | Validated |
 | C1-09 | UC-02: Authentication failures | Controlled authentication failures against Active Directory produce the expected Windows Security Events and Wazuh alerts. Evidence and a STAR-based investigation report are reviewed. | Validated |
-| C1-10 | Chapter 1 review and closure | Evidence is sanitized, limitations and lessons learned are recorded, and the chapter success criteria are reviewed. | Planned |
+| C1-10 | Chapter 1 review and closure | Evidence is sanitized, limitations and lessons learned are recorded, and the chapter success criteria are reviewed. | Validated |
 
 ## Chapter 2 – Endpoint and Detection Engineering
 
