@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 2 – Endpoint and Detection Engineering** · in progress. Current milestone: **C2-01 – Chapter scope and acceptance criteria**
+**Chapter 2 – Endpoint and Detection Engineering** · in progress. Current milestone: **C2-03 – Sysmon telemetry validation**
 
 ## How status is tracked
 
@@ -42,8 +42,8 @@ Goal: turn visibility into detection — Sysmon telemetry on the Windows endpoin
 
 | ID | Milestone | Done when | Status |
 |---|---|---|---|
-| C2-01 | Chapter scope and acceptance criteria | Scope, boundaries, success criteria, and the detection workflow are reviewed and stored in the repository. | In Progress |
-| C2-02 | Sysmon deployment on Windows 10 | Sysmon runs with a documented configuration, and Wazuh receives and correctly identifies its events. | Planned |
+| C2-01 | Chapter scope and acceptance criteria | Scope, boundaries, success criteria, and the detection workflow are reviewed and stored in the repository. | Validated |
+| C2-02 | Sysmon deployment on Windows 10 | Sysmon runs with a documented configuration, and Wazuh receives and correctly identifies its events. | Validated |
 | C2-03 | Sysmon telemetry validation | A controlled test event is traced end to end, and the endpoint's normal baseline behavior is documented. | Planned |
 | C2-04 | UC-03: Suspicious PowerShell execution | The controlled scenario produces the expected Sysmon telemetry in Wazuh. Evidence and a STAR-based investigation report are reviewed. | Planned |
 | C2-05 | Custom Wazuh detection rule | At least one custom rule alerts on the UC-03 activity; the rule is committed with the reasoning behind its conditions. | Planned |

@@ -2,7 +2,7 @@
 
 A small Security Operations Center built from scratch on a dedicated VMware ESXi host. The lab combines firewall, network, identity, and endpoint telemetry into a single monitoring workflow — and documents every decision, limitation, and test result along the way.
 
-**Current stage:** Chapter 1 – Core SOC Visibility. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
+**Current stage:** Chapter 2 – Endpoint and Detection Engineering. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
 
 ## Why I built this
 
@@ -113,6 +113,8 @@ Each milestone produces one document, written as the work happens:
 | [UC-01: Network Discovery](./investigations/UC-01/report.md) | Investigation report — a controlled scan from Kali traced across FortiGate, Suricata, and Wazuh | C1-08 |
 | [UC-02: Authentication Failures](./investigations/UC-02/report.md) | Investigation report — a controlled SMB brute force against Active Directory, from Windows event to Wazuh alert | C1-09 |
 | [Chapter 1 Closure](./docs/07-chapter-1-closure.md) | Success-criteria review, consolidated versions and limitations, and lessons learned | C1-10 |
+| [Chapter 2 Scope](./docs/08-chapter-2-scope.md) | What detection engineering must deliver, the workflow it validates, and what stays out | C2-01 |
+| [Sysmon Deployment](./docs/09-sysmon-deployment.md) | Process-level telemetry on the Windows endpoint — configuration choice, collection, and the alerting gap it exposed | C2-02 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -130,6 +132,8 @@ Each milestone produces one document, written as the work happens:
 │   ├── 05-suricata-sensor.md
 │   ├── 06-suricata-wazuh-integration.md
 │   ├── 07-chapter-1-closure.md
+│   ├── 08-chapter-2-scope.md
+│   ├── 09-sysmon-deployment.md
 │   └── img/             ← sanitized evidence, one folder per document
 └── investigations/     ← STAR investigation reports, one folder per scenario
     ├── UC-01/
