@@ -2,7 +2,7 @@
 
 How the Suricata host is turned into a passive network sensor and how its capture is verified. This is the deliverable of milestone C1-06: a dedicated capture interface watching the SOC segment, with Suricata recording controlled traffic in `eve.json`.
 
-The virtual switch behavior this depends on is documented in the [Infrastructure Baseline](./01-infrastructure-baseline.md); forwarding `eve.json` into Wazuh is the next milestone (C1-07). Status is tracked in the [Roadmap](../ROADMAP.md).
+The virtual switch behavior this depends on is documented in the [Infrastructure Baseline](./01-infrastructure-baseline.md); forwarding `eve.json` into Wazuh is covered in the [Suricata and Wazuh Integration](./06-suricata-wazuh-integration.md). Status is tracked in the [Roadmap](../ROADMAP.md).
 
 ## Capture design
 

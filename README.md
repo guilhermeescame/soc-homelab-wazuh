@@ -38,7 +38,7 @@ The lab runs on a dedicated VMware ESXi 6.7 host: a 14-core Intel Xeon E5-2680 v
 
 Only the external virtual switch has a physical uplink. The SOC and Attack networks are internal to the host, and the FortiGate is the only routed path between them.
 
-Solid lines in the diagram are deployed and validated paths. The dashed line is the one telemetry integration still pending.
+Every path shown is a deployed and validated telemetry flow.
 
 ```mermaid
 flowchart LR
@@ -73,7 +73,7 @@ flowchart LR
     AD -->|"Wazuh Agent"| WAZUH
     WIN10 -->|"Wazuh Agent"| WAZUH
     DEBIAN -->|"Wazuh Agent"| WAZUH
-    SURICATA -.->|"eve.json via Wazuh Agent - planned"| WAZUH
+    SURICATA -->|"eve.json via Wazuh Agent"| WAZUH
 ```
 
 ## Technology choices
@@ -111,6 +111,7 @@ Each milestone produces one document, written as the work happens:
 | [Suricata Sensor Validation](./docs/05-suricata-sensor.md) | Capture design, sensor configuration, and the passive capture proof | C1-06 |
 | [Suricata and Wazuh Integration](./docs/06-suricata-wazuh-integration.md) | Collecting `eve.json` through the host agent and the controlled alert that validates it | C1-07 |
 | [UC-01: Network Discovery](./investigations/UC-01/report.md) | Investigation report — a controlled scan from Kali traced across FortiGate, Suricata, and Wazuh | C1-08 |
+| [UC-02: Authentication Failures](./investigations/UC-02/report.md) | Investigation report — a controlled SMB brute force against Active Directory, from Windows event to Wazuh alert | C1-09 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -129,14 +130,17 @@ Each milestone produces one document, written as the work happens:
 │   ├── 06-suricata-wazuh-integration.md
 │   └── img/             ← sanitized evidence, one folder per document
 └── investigations/     ← STAR investigation reports, one folder per scenario
-    └── UC-01/
+    ├── UC-01/
+    │   ├── report.md
+    │   └── evidence/
+    └── UC-02/
         ├── report.md
         └── evidence/
 ```
 
 ## Where the project is now
 
-The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. The first investigation scenario is done — a controlled network scan from Kali, traced across all three sources in [UC-01](./investigations/UC-01/report.md). What remains in Chapter 1 is the second scenario and the chapter closure.
+The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. Both investigation scenarios are done — network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md), each traced from the attacker's action to the SIEM. What remains in Chapter 1 is the closure: sanitizing evidence, recording lessons learned, and reviewing the chapter's success criteria.
 
 Deployed is not the same as validated — each milestone only closes after documented testing and evidence review. Current focus and status live in the [Roadmap](./ROADMAP.md).
 
