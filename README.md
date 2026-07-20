@@ -117,6 +117,7 @@ Each milestone produces one document, written as the work happens:
 | [Chapter 2 Scope](./docs/08-chapter-2-scope.md) | What detection engineering must deliver, the workflow it validates, and what stays out | C2-01 |
 | [Sysmon Deployment](./docs/09-sysmon-deployment.md) | Process-level telemetry on the Windows endpoint — configuration choice, collection, and the alerting gap it exposed | C2-02 |
 | [Sysmon Telemetry Baseline](./docs/10-sysmon-baseline.md) | What the endpoint looks like when nothing is wrong — event distribution, a noisy updater, and an injection indicator investigated | C2-03 |
+| [UC-03: Suspicious PowerShell Execution](./investigations/UC-03/report.md) | Investigation report — a controlled PowerShell download cradle, captured in Sysmon and traced to Wazuh, and the alerting gap it exposes | C2-04 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -142,7 +143,10 @@ Each milestone produces one document, written as the work happens:
     ├── UC-01/
     │   ├── report.md
     │   └── evidence/
-    └── UC-02/
+    ├── UC-02/
+    │   ├── report.md
+    │   └── evidence/
+    └── UC-03/
         ├── report.md
         └── evidence/
 ```
@@ -151,11 +155,11 @@ Each milestone produces one document, written as the work happens:
 
 Chapter 1 is complete. The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. Both investigation scenarios are done — network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md), each traced from the attacker's action to the SIEM. The [Chapter 1 Closure](./docs/07-chapter-1-closure.md) reviews the success criteria and consolidates the versions, limitations, and lessons learned.
 
-Chapter 2 is underway. Sysmon runs on the Windows endpoint with a documented configuration ([deployment](./docs/09-sysmon-deployment.md)), and the endpoint's normal behavior is measured and investigated ([baseline](./docs/10-sysmon-baseline.md)). Next comes the controlled attack scenario and the custom detection built for it. Current focus and status live in the [Roadmap](./ROADMAP.md).
+Chapter 2 is underway. Sysmon runs on the Windows endpoint with a documented configuration ([deployment](./docs/09-sysmon-deployment.md)), its normal behavior is measured and investigated ([baseline](./docs/10-sysmon-baseline.md)), and a controlled PowerShell attack has been captured and traced to the SIEM ([UC-03](./investigations/UC-03/report.md)). That scenario is decoded but not yet alerting — the next step is the custom rule that fires on it. Current focus and status live in the [Roadmap](./ROADMAP.md).
 
 ## What comes next
 
-The chapter continues with the controlled suspicious PowerShell scenario (UC-03), a custom Wazuh rule that alerts on it, false-positive tuning against the measured baseline, and MITRE ATT&CK mapping. A later chapter will look at small, reversible response and automation workflows.
+Chapter 2 continues with a custom Wazuh rule that alerts on the UC-03 activity, false-positive tuning against the measured baseline, and MITRE ATT&CK mapping. A later chapter will look at small, reversible response and automation workflows.
 
 ## Safety and ethical boundaries
 

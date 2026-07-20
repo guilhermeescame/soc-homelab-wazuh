@@ -40,7 +40,7 @@ Chapter 2 closes when every item below holds:
 
 - [x] Sysmon runs on the Windows 10 endpoint with a documented configuration, and its events are received and correctly identified in Wazuh.
 - [x] A controlled test event confirms the Sysmon pipeline end to end (expected versus observed).
-- [ ] UC-03 produces the expected Sysmon telemetry, visible in Wazuh.
+- [x] UC-03 produces the expected Sysmon telemetry, visible in Wazuh.
 - [ ] At least one custom Wazuh rule raises an alert on the UC-03 activity.
 - [ ] The rule has been run against normal endpoint activity, with false positives and the applied tuning documented.
 - [ ] Each validated detection is mapped to the MITRE ATT&CK technique(s) it covers.
