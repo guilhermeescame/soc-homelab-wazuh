@@ -84,6 +84,7 @@ flowchart LR
 | FortiGate 7.4.12 (Evaluation) | Routing, segmentation, and policy enforcement between the networks. The evaluation license caps the lab at three firewall policies — a real constraint the design works around. |
 | Wazuh all-in-one (Ubuntu Server 24.04) | The central SIEM. Receives agent, syslog, and Suricata telemetry, and is the single place where events are analyzed. |
 | Suricata (Ubuntu Server 24.04) | Passive network IDS on the monitored segment, exporting structured events through `eve.json`. |
+| Sysmon (Windows 10) | Process-level endpoint telemetry — command lines, hashes, and parent lineage feeding the detection work. |
 | Active Directory + Windows 10 | Identity, authentication, and Windows endpoint telemetry. |
 | Debian Desktop | Linux endpoint visibility. |
 | Kali Linux | Source of controlled test traffic, kept inside the isolated Attack Network. |
@@ -115,6 +116,7 @@ Each milestone produces one document, written as the work happens:
 | [Chapter 1 Closure](./docs/07-chapter-1-closure.md) | Success-criteria review, consolidated versions and limitations, and lessons learned | C1-10 |
 | [Chapter 2 Scope](./docs/08-chapter-2-scope.md) | What detection engineering must deliver, the workflow it validates, and what stays out | C2-01 |
 | [Sysmon Deployment](./docs/09-sysmon-deployment.md) | Process-level telemetry on the Windows endpoint — configuration choice, collection, and the alerting gap it exposed | C2-02 |
+| [Sysmon Telemetry Baseline](./docs/10-sysmon-baseline.md) | What the endpoint looks like when nothing is wrong — event distribution, a noisy updater, and an injection indicator investigated | C2-03 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -134,6 +136,7 @@ Each milestone produces one document, written as the work happens:
 │   ├── 07-chapter-1-closure.md
 │   ├── 08-chapter-2-scope.md
 │   ├── 09-sysmon-deployment.md
+│   ├── 10-sysmon-baseline.md
 │   └── img/             ← sanitized evidence, one folder per document
 └── investigations/     ← STAR investigation reports, one folder per scenario
     ├── UC-01/
@@ -148,13 +151,11 @@ Each milestone produces one document, written as the work happens:
 
 Chapter 1 is complete. The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. Both investigation scenarios are done — network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md), each traced from the attacker's action to the SIEM. The [Chapter 1 Closure](./docs/07-chapter-1-closure.md) reviews the success criteria and consolidates the versions, limitations, and lessons learned.
 
-Deployed is not the same as validated — each milestone only closed after documented testing and evidence review. The project now moves into Chapter 2. Current focus and status live in the [Roadmap](./ROADMAP.md).
+Chapter 2 is underway. Sysmon runs on the Windows endpoint with a documented configuration ([deployment](./docs/09-sysmon-deployment.md)), and the endpoint's normal behavior is measured and investigated ([baseline](./docs/10-sysmon-baseline.md)). Next comes the controlled attack scenario and the custom detection built for it. Current focus and status live in the [Roadmap](./ROADMAP.md).
 
 ## What comes next
 
-Once the core monitoring workflow is validated, the project moves into endpoint and detection engineering: Sysmon, custom Wazuh rules, false-positive analysis, and MITRE ATT&CK mapping. A later chapter will look at small, reversible response and automation workflows.
-
-None of that starts before Chapter 1 closes.
+The chapter continues with the controlled suspicious PowerShell scenario (UC-03), a custom Wazuh rule that alerts on it, false-positive tuning against the measured baseline, and MITRE ATT&CK mapping. A later chapter will look at small, reversible response and automation workflows.
 
 ## Safety and ethical boundaries
 
