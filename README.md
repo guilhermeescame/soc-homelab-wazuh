@@ -2,7 +2,7 @@
 
 A small Security Operations Center built from scratch on a dedicated VMware ESXi host. The lab combines firewall, network, identity, and endpoint telemetry into a single monitoring workflow — and documents every decision, limitation, and test result along the way.
 
-**Current stage:** Chapter 2 – Endpoint and Detection Engineering. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
+**Current stage:** Chapter 2 complete; Chapter 3 – Response and Automation next. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
 
 ## Why I built this
 
@@ -120,6 +120,7 @@ Each milestone produces one document, written as the work happens:
 | [UC-03: Suspicious PowerShell Execution](./investigations/UC-03/report.md) | Investigation report — a controlled PowerShell download cradle, captured in Sysmon and traced to Wazuh, and the alerting gap it exposes | C2-04 |
 | [Custom Detection Rule](./docs/11-custom-detection-rule.md) | The first custom Wazuh rule — a PowerShell download-cradle detection, why it was rebuilt on Script Block Logging, and how it was validated | C2-05 |
 | [Rule Tuning](./docs/12-rule-tuning.md) | Running the rule against normal PowerShell, the false positive it exposed, and the tuning that keeps the cradle while dropping the noise | C2-06 |
+| [Chapter 2 Closure](./docs/13-chapter-2-closure.md) | Success-criteria review, MITRE ATT&CK mapping and its gaps, consolidated versions and limitations, and lessons learned | C2-07, C2-08 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure

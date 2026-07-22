@@ -43,11 +43,11 @@ Chapter 2 closes when every item below holds:
 - [x] UC-03 produces the expected Sysmon telemetry, visible in Wazuh.
 - [x] At least one custom Wazuh rule raises an alert on the UC-03 activity.
 - [x] The rule has been run against normal endpoint activity, with false positives and the applied tuning documented.
-- [ ] Each validated detection is mapped to the MITRE ATT&CK technique(s) it covers.
-- [ ] UC-03 has reviewed evidence and a written investigation report.
-- [ ] Software versions and configuration dependencies added in this chapter are documented.
-- [ ] Known detection gaps and limitations are documented.
-- [ ] Published evidence contains no credentials, tokens, personal data, or unnecessary infrastructure details.
+- [x] Each validated detection is mapped to the MITRE ATT&CK technique(s) it covers.
+- [x] UC-03 has reviewed evidence and a written investigation report.
+- [x] Software versions and configuration dependencies added in this chapter are documented.
+- [x] Known detection gaps and limitations are documented.
+- [x] Published evidence contains no credentials, tokens, personal data, or unnecessary infrastructure details.
 
 ## Evidence requirements
 
