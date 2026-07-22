@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 2 – Endpoint and Detection Engineering** · in progress. Current milestone: **C2-06 – False-positive review and tuning**
+**Chapter 2 – Endpoint and Detection Engineering** · in progress. Current milestone: **C2-07 – MITRE ATT&CK mapping**
 
 ## How status is tracked
 
@@ -47,7 +47,7 @@ Goal: turn visibility into detection — Sysmon telemetry on the Windows endpoin
 | C2-03 | Sysmon telemetry validation | A controlled test event is traced end to end, and the endpoint's normal baseline behavior is documented. | Validated |
 | C2-04 | UC-03: Suspicious PowerShell execution | The controlled scenario produces the expected Sysmon telemetry in Wazuh. Evidence and a STAR-based investigation report are reviewed. | Validated |
 | C2-05 | Custom Wazuh detection rule | At least one custom rule alerts on the UC-03 activity; the rule is committed with the reasoning behind its conditions. | Validated |
-| C2-06 | False-positive review and tuning | The rule has run against normal endpoint activity, with false positives documented and the tuning re-tested. | Planned |
+| C2-06 | False-positive review and tuning | The rule has run against normal endpoint activity, with false positives documented and the tuning re-tested. | Validated |
 | C2-07 | MITRE ATT&CK mapping | Each validated detection is mapped to the technique it covers — and to what it misses. | Planned |
 | C2-08 | Chapter 2 review and closure | Evidence is sanitized, limitations and lessons learned are recorded, and the chapter success criteria are reviewed. | Planned |
 

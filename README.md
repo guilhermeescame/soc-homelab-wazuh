@@ -119,6 +119,7 @@ Each milestone produces one document, written as the work happens:
 | [Sysmon Telemetry Baseline](./docs/10-sysmon-baseline.md) | What the endpoint looks like when nothing is wrong — event distribution, a noisy updater, and an injection indicator investigated | C2-03 |
 | [UC-03: Suspicious PowerShell Execution](./investigations/UC-03/report.md) | Investigation report — a controlled PowerShell download cradle, captured in Sysmon and traced to Wazuh, and the alerting gap it exposes | C2-04 |
 | [Custom Detection Rule](./docs/11-custom-detection-rule.md) | The first custom Wazuh rule — a PowerShell download-cradle detection, why it was rebuilt on Script Block Logging, and how it was validated | C2-05 |
+| [Rule Tuning](./docs/12-rule-tuning.md) | Running the rule against normal PowerShell, the false positive it exposed, and the tuning that keeps the cradle while dropping the noise | C2-06 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
