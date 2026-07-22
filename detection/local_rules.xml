@@ -1,0 +1,31 @@
+<!--
+  SOC Home Lab - Custom Wazuh detection rules (C2-05)
+  Deployed to /var/ossec/etc/rules/local_rules.xml on the Wazuh manager.
+-->
+
+<group name="windows,powershell,local,">
+
+  <!--
+    Detects a PowerShell download cradle via Script Block Logging (Event ID 4104).
+    Chains to 91802, the built-in parent for PowerShell/Operational script-block
+    events, and matches the script text against the markers of a fileless
+    download-and-execute: DownloadString/DownloadFile, Net.WebClient, and IEX /
+    Invoke-Expression. Level 12 puts it above the alerting threshold.
+
+    Sysmon Event 1 (process creation) was the first choice for this detection but
+    proved unreliable in this environment; see docs/11-custom-detection-rule.md.
+    Script Block Logging captures the executed script content directly and is the
+    telemetry Wazuh's own ruleset uses for PowerShell (rules 91805-91846).
+  -->
+  <rule id="100100" level="12">
+    <if_sid>91802</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)(DownloadString|DownloadFile|Net\.WebClient|Invoke-Expression|IEX\s*\()</field>
+    <description>PowerShell download cradle detected via Script Block Logging (T1059.001)</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1105</id>
+    </mitre>
+    <group>attack,powershell_suspicious,</group>
+  </rule>
+
+</group>
