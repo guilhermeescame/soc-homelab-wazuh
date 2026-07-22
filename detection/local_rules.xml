@@ -33,4 +33,26 @@
     <group>attack,powershell_suspicious,</group>
   </rule>
 
+  <!--
+    Enrichment rule (C3-02). Chains to 60122, Wazuh's built-in "Logon Failure -
+    Unknown user or bad password", and raises it to level 12 when the source
+    address is not a key in the known-hosts CDB list.
+
+    The lookup reads win.eventdata.ipAddress -- the source field the Windows 4625
+    event carries on a network logon. A known host clears the lookup and only the
+    base 60122 fires; an unknown source gets this second, elevated alert on top.
+    The elevated level is what the Active Response milestone (C3-03) triggers on,
+    so automated blocking acts on hostile sources rather than ordinary failed
+    logons. List: /var/ossec/etc/lists/known-hosts (sanitized copy: known-hosts).
+  -->
+  <rule id="100110" level="12">
+    <if_sid>60122</if_sid>
+    <list field="win.eventdata.ipAddress" lookup="not_match_key">etc/lists/known-hosts</list>
+    <description>Authentication failure from a source outside the known-hosts list (T1110)</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>authentication_failures,attack,</group>
+  </rule>
+
 </group>

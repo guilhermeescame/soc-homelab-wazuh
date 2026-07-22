@@ -1,0 +1,6 @@
+10.10.10.1:fortigate-soc
+10.10.10.10:wazuh-manager
+10.10.10.15:suricata
+10.10.10.20:soc-ad
+10.10.10.30:soc-win10
+10.10.10.40:debian

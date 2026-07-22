@@ -2,7 +2,7 @@
 
 A small Security Operations Center built from scratch on a dedicated VMware ESXi host. The lab combines firewall, network, identity, and endpoint telemetry into a single monitoring workflow — and documents every decision, limitation, and test result along the way.
 
-**Current stage:** Chapter 2 complete; Chapter 3 – Response and Automation next. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
+**Current stage:** Chapter 3 – Response and Automation underway; enrichment done, Active Response next. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
 
 ## Why I built this
 
@@ -121,6 +121,8 @@ Each milestone produces one document, written as the work happens:
 | [Custom Detection Rule](./docs/11-custom-detection-rule.md) | The first custom Wazuh rule — a PowerShell download-cradle detection, why it was rebuilt on Script Block Logging, and how it was validated | C2-05 |
 | [Rule Tuning](./docs/12-rule-tuning.md) | Running the rule against normal PowerShell, the false positive it exposed, and the tuning that keeps the cradle while dropping the noise | C2-06 |
 | [Chapter 2 Closure](./docs/13-chapter-2-closure.md) | Success-criteria review, MITRE ATT&CK mapping and its gaps, consolidated versions and limitations, and lessons learned | C2-07, C2-08 |
+| [Chapter 3 Scope](./docs/14-chapter-3-scope.md) | What response and automation must deliver, how the two detection chains split roles, and what stays out | C3-01 |
+| [CDB List Enrichment](./docs/15-cdb-enrichment.md) | A known-hosts list and a rule that weights authentication failures by source — elevating unknown origins, leaving known ones alone | C3-02 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -156,13 +158,13 @@ Each milestone produces one document, written as the work happens:
 
 ## Where the project is now
 
-Chapter 1 is complete. The full telemetry pipeline is built and validated: every endpoint reports to Wazuh as an active agent, FortiGate logs arrive by syslog, and Suricata's `eve.json` reaches the SIEM through the host agent. Both investigation scenarios are done — network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md), each traced from the attacker's action to the SIEM. The [Chapter 1 Closure](./docs/07-chapter-1-closure.md) reviews the success criteria and consolidates the versions, limitations, and lessons learned.
+Chapters 1 and 2 are complete. The first built and validated the full telemetry pipeline — every endpoint reporting to Wazuh as an active agent, FortiGate logs arriving by syslog, Suricata's `eve.json` reaching the SIEM through the host agent — and closed two investigations traced from the attacker's action to the SIEM: network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md). The second turned that visibility into detection: Sysmon on the Windows endpoint ([deployment](./docs/09-sysmon-deployment.md), [baseline](./docs/10-sysmon-baseline.md)), a controlled PowerShell cradle captured in [UC-03](./investigations/UC-03/report.md), and a custom rule that alerts on it — [built](./docs/11-custom-detection-rule.md), [tuned against false positives](./docs/12-rule-tuning.md), and [mapped to ATT&CK](./docs/13-chapter-2-closure.md).
 
-Chapter 2 is underway. Sysmon runs on the Windows endpoint with a documented configuration ([deployment](./docs/09-sysmon-deployment.md)), its normal behavior is measured and investigated ([baseline](./docs/10-sysmon-baseline.md)), and a controlled PowerShell attack has been captured and traced to the SIEM ([UC-03](./investigations/UC-03/report.md)). That scenario is decoded but not yet alerting — the next step is the custom rule that fires on it. Current focus and status live in the [Roadmap](./ROADMAP.md).
+Chapter 3 is underway, building the acting half. The first milestone is done: a known-hosts list and a rule that weights authentication failures by source ([enrichment](./docs/15-cdb-enrichment.md)), so a brute force from an unknown address rises to a high-severity alert while an ordinary failed login from a domain host does not. That elevated alert is the trigger the rest of the chapter builds on. Current focus and status live in the [Roadmap](./ROADMAP.md).
 
 ## What comes next
 
-Chapter 2 continues with a custom Wazuh rule that alerts on the UC-03 activity, false-positive tuning against the measured baseline, and MITRE ATT&CK mapping. A later chapter will look at small, reversible response and automation workflows.
+Chapter 3 continues from the enriched alert: a small, reversible Wazuh Active Response that blocks an unknown source on the domain controller and lifts the block on a timeout, controlled Discord notifications for high-severity alerts, and a full-cycle validation ([UC-04](./ROADMAP.md)) that re-runs the UC-02 brute force against the hardened pipeline — detection, containment, reversal, and notification, each step with evidence. Response safeguards and operational risks are documented before the automation is armed.
 
 ## Safety and ethical boundaries
 
