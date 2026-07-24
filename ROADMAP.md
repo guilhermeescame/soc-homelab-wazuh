@@ -4,7 +4,7 @@ The single reference for what is done, what is in progress, and what comes next.
 
 ## Current focus
 
-**Chapter 3 – Response and Automation** · next: C3-03 Active Response on the domain controller
+**Chapter 3 – Response and Automation** · next: C3-04 Discord notifications
 
 ## How status is tracked
 
@@ -59,7 +59,7 @@ Goal: turn detection into action — alert enrichment that separates known hosts
 |---|---|---|---|
 | C3-01 | Chapter scope and acceptance criteria | Scope, boundaries, success criteria, and the response workflow are reviewed and stored in the repository. | Validated |
 | C3-02 | CDB list enrichment | A list of known lab hosts exists on the manager, and a child rule raises authentication failures from unknown sources; both behaviors are tested with reviewed evidence. | Validated |
-| C3-03 | Active Response on the domain controller | The `netsh` response triggers on the elevated rule only, blocks the offending source, and the timeout reverses it; block and reversal observed in a controlled test. | Planned |
+| C3-03 | Active Response on the domain controller | The `netsh` response triggers on the elevated rule only, blocks the offending source, and the timeout reverses it; block and reversal observed in a controlled test. | Validated |
 | C3-04 | Discord notifications | Alerts at level 12 and above reach Discord through a committed custom integration; notifications received for the elevated rule and for rule 100100. | Planned |
 | C3-05 | Response safeguards | Operational risks and their mitigations are documented and reviewed before UC-04 runs. | Planned |
 | C3-06 | UC-04: Full response cycle | The UC-02 brute force re-run produces the elevated alert, the active block, the contained attack, the automatic reversal, and the notification — each step with evidence. STAR report reviewed. | Planned |
