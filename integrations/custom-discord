@@ -1,0 +1,10 @@
+#!/bin/sh
+# SOC Home Lab - Wazuh -> Discord integration wrapper (C3-04)
+# Deployed to /var/ossec/integrations/custom-discord on the Wazuh manager.
+# Runs the Python logic with the manager's bundled interpreter.
+WPYTHON_BIN="framework/python/bin/python3"
+SCRIPT_PATH_NAME="$0"
+DIR_NAME="$(cd $(dirname ${SCRIPT_PATH_NAME}); pwd -P)"
+WAZUH_PATH="$(cd ${DIR_NAME}/..; pwd)"
+PYTHON_SCRIPT="${DIR_NAME}/$(basename ${SCRIPT_PATH_NAME}).py"
+${WAZUH_PATH}/${WPYTHON_BIN} ${PYTHON_SCRIPT} "$@"
