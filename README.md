@@ -2,7 +2,7 @@
 
 A small Security Operations Center built from scratch on a dedicated VMware ESXi host. The lab combines firewall, network, identity, and endpoint telemetry into a single monitoring workflow — and documents every decision, limitation, and test result along the way.
 
-**Current stage:** Chapter 3 – Response and Automation underway; enrichment, Active Response, and notifications done, safeguards next. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
+**Current stage:** Chapter 3 – Response and Automation underway; enrichment, Active Response, notifications, and safeguards done, the full-cycle UC-04 next. Milestone-level status lives in the [Roadmap](./ROADMAP.md).
 
 ## Why I built this
 
@@ -125,6 +125,7 @@ Each milestone produces one document, written as the work happens:
 | [CDB List Enrichment](./docs/15-cdb-enrichment.md) | A known-hosts list and a rule that weights authentication failures by source — elevating unknown origins, leaving known ones alone | C3-02 |
 | [Active Response](./docs/16-active-response.md) | A `netsh` block on the domain controller that fires on the enriched rule, contains a repeat attempt, and lifts itself on a timeout | C3-03 |
 | [Discord Notifications](./docs/17-discord-notifications.md) | A custom integration forwarding high-severity alerts to a Discord channel, and the TLS and Cloudflare fixes it took to work | C3-04 |
+| [Response Safeguards](./docs/18-response-safeguards.md) | The operational risks automated response carries and the guardrails against them, written before the full-cycle test | C3-05 |
 | [Project Roadmap](./ROADMAP.md) | Milestones, current focus, and status — the only place status lives | — |
 
 ## Repository structure
@@ -152,11 +153,11 @@ Each milestone produces one document, written as the work happens:
 
 Chapters 1 and 2 are complete. The first built and validated the full telemetry pipeline — every endpoint reporting to Wazuh as an active agent, FortiGate logs arriving by syslog, Suricata's `eve.json` reaching the SIEM through the host agent — and closed two investigations traced from the attacker's action to the SIEM: network discovery in [UC-01](./investigations/UC-01/report.md) and a credential brute force in [UC-02](./investigations/UC-02/report.md). The second turned that visibility into detection: Sysmon on the Windows endpoint ([deployment](./docs/09-sysmon-deployment.md), [baseline](./docs/10-sysmon-baseline.md)), a controlled PowerShell cradle captured in [UC-03](./investigations/UC-03/report.md), and a custom rule that alerts on it — [built](./docs/11-custom-detection-rule.md), [tuned against false positives](./docs/12-rule-tuning.md), and [mapped to ATT&CK](./docs/13-chapter-2-closure.md).
 
-Chapter 3 is underway, building the acting half. Three milestones are done. Enrichment came first: a known-hosts list and a rule that weights authentication failures by source ([C3-02](./docs/15-cdb-enrichment.md)), so a brute force from an unknown address rises to a high-severity alert while an ordinary failed login from a domain host does not. Response followed: a small, reversible Wazuh Active Response ([C3-03](./docs/16-active-response.md)) that fires on that elevated alert, blocks the source on the domain controller, contains a repeat attempt, and lifts the block on a timeout. Then notifications: a custom integration ([C3-04](./docs/17-discord-notifications.md)) that carries every high-severity alert to a Discord channel. Current focus and status live in the [Roadmap](./ROADMAP.md).
+Chapter 3 is underway, building the acting half. Four milestones are done. Enrichment came first: a known-hosts list and a rule that weights authentication failures by source ([C3-02](./docs/15-cdb-enrichment.md)), so a brute force from an unknown address rises to a high-severity alert while an ordinary failed login from a domain host does not. Response followed: a small, reversible Wazuh Active Response ([C3-03](./docs/16-active-response.md)) that fires on that elevated alert, blocks the source on the domain controller, contains a repeat attempt, and lifts the block on a timeout. Then notifications: a custom integration ([C3-04](./docs/17-discord-notifications.md)) that carries every high-severity alert to a Discord channel. And before validating any of it, the response safeguards and operational risks were written down ([C3-05](./docs/18-response-safeguards.md)). Current focus and status live in the [Roadmap](./ROADMAP.md).
 
 ## What comes next
 
-Chapter 3 continues with a short document of the response safeguards and operational risks, then a full-cycle validation ([UC-04](./ROADMAP.md)) that re-runs the UC-02 brute force against the hardened pipeline — detection, containment, reversal, and notification, each step with evidence.
+Chapter 3 finishes with a full-cycle validation ([UC-04](./ROADMAP.md)) that re-runs the UC-02 brute force against the hardened pipeline — detection, containment, reversal, and notification, each step with evidence — followed by the chapter closure.
 
 ## Safety and ethical boundaries
 
